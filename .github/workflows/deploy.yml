@@ -17,6 +17,7 @@ jobs:
         username: ${{ secrets.SSH_USER }}
         key: ${{ secrets.SSH_KEY }}
         script: |
+          cd /root/env/ThijmenHeuvelink.nl
           git pull
           npm i
           docker restart thijmenheuvelink.nl
