@@ -1,0 +1,22 @@
+name: Deploy
+
+on:
+  push:
+    branches: [ server ]
+
+jobs:
+  Deploy:
+    runs-on: self-hosted
+
+    steps:
+    - name: Deploying ..
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.HOST }}
+        username: ${{ secrets.USERNAME }}
+        key: ${{ secrets.KEY }}
+        port: ${{ secrets.PORT }}
+        script: |
+          git pull
+          npm run deploy
+          docker restart thijmenheuvelink.nl
