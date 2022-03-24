@@ -24,5 +24,6 @@ jobs:
           [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
           nvm install 16.14.0
 
+          npm run build
           npm i
           docker restart thijmenheuvelink.nl
