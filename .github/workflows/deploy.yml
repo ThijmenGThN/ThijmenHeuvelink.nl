@@ -9,7 +9,7 @@ jobs:
     runs-on: self-hosted
 
     steps:
-    - name: Deploying ..
+    - name: Setup ..
       uses: appleboy/ssh-action@master
       with:
         host: ${{ secrets.SSH_HOST }}
@@ -19,11 +19,24 @@ jobs:
         script: |
           cd /root/env/ThijmenHeuvelink.nl
           git pull
-
+    - name: Building ..
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.SSH_HOST }}
+        port: ${{ secrets.SSH_PORT }}
+        username: ${{ secrets.SSH_USER }}
+        key: ${{ secrets.SSH_KEY }}
+        script: |
           export NVM_DIR="$HOME/.nvm"
           [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
           nvm install 16.14.0
-
           npm run build
           npm i
-          docker restart thijmenheuvelink.nl
+    - name: Applying ..
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.SSH_HOST }}
+        port: ${{ secrets.SSH_PORT }}
+        username: ${{ secrets.SSH_USER }}
+        key: ${{ secrets.SSH_KEY }}
+        script: docker restart thijmenheuvelink.nl
