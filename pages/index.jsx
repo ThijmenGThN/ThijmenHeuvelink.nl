@@ -2,7 +2,7 @@ import { VscGithub } from 'react-icons/vsc'
 
 export default function Index() {
   return (
-    <div className="bg-red-100 text-center grid place-items-center h-screen">
+    <div className="bg-gray-100 text-center grid place-items-center h-screen">
       <div className="bg-white w-full p-10">
         <b className="my-10">Thijmen Heuvelink</b>
         <br />
