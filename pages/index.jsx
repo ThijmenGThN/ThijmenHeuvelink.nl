@@ -3,7 +3,7 @@ import { VscGithub } from 'react-icons/vsc'
 export default function Index() {
   return (
     <div className="grid h-screen text-center bg-gray-100 place-items-center">
-      <div className="w-full p-10 bg-white">
+      <div className="w-full p-10 bg-white border-gray-200 border-y-4">
         <b className="my-10">Thijmen Heuvelink</b>
         <br />
         <i>A developer from The Netherlands</i>
