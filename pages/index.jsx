@@ -7,16 +7,13 @@ export default function Index() {
       <NavBar />
 
       <div className="container mx-auto grid sm:grid-cols-2 gap-6 justify-center">
-        <div>
+        <div className="grid gap-6">
           <Hosting 
             name="My Services"
             hosted={[
               { tag: "th01", name: "BookStack", description: "Collection of notes and scripts", link: "https://wiki.thijmenheuvelink.nl"},
             ]}
           />
-        </div>
-
-        <div className="grid gap-6">
           <Hosting 
             name="Clients"
             hosted={[
@@ -25,7 +22,9 @@ export default function Index() {
               { tag: "nb01", name: "Wordpress installation", description: "Crochet Webshop", link: "https://nb01.thijmenheuvelink.nl"},
             ]}
           />
+        </div>
 
+        <div className="grid gap-6">
           <Hosting 
             name="Aventus"
             hosted={[
