@@ -1,6 +1,6 @@
 export default function NavBar() {
   return (
-    <div className="flex m-8 mb-16 flex-nowrap">
+    <div className="container mx-auto flex m-8 mb-16 flex-nowrap">
       <div className="flex-grow h-full p-2 sm:p-0">
         <p className="font-bold">Thijmen Heuvelink</p>
         <p className="text-zinc-500 italic hidden sm:block text-sm">A software developer from The Netherlands</p>
