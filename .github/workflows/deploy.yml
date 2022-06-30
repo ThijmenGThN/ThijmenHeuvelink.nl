@@ -32,7 +32,6 @@ jobs:
           cd /root/env/ThijmenHeuvelink.nl
           export NVM_DIR="$HOME/.nvm"
           [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-          nvm install 16.14.0
           npm run build
           npm i
 
