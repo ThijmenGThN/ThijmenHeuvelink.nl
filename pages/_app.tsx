@@ -2,20 +2,20 @@ import Head from 'next/head'
 import getConfig from 'next/config'
 import { Directus } from '@directus/sdk'
 
-import '/source/styles/globals.css'
-
 import type { AppProps } from 'next/app'
+
+import '@/styles/globals.css'
 
 const { publicRuntimeConfig: config } = getConfig()
 
-export default function App({ Component, pageProps }: AppProps) {
+export default function App({ Component, pageProps }: { Component: any, pageProps: AppProps }) {
 
-  pageProps.API = new Directus(config.API_URL ? config.API_URL : 'http://localhost:8055')
+  pageProps.API = new Directus(config.CORS_ENDPOINT ? config.CORS_ENDPOINT : 'http://localhost:8055')
 
   return (
     <>
       <Head>
-        <title>App</title>
+        <title>Leaflet</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
