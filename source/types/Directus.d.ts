@@ -1,9 +1,11 @@
 
 export default interface Directus {
   auth: {
-    login: {
-      email: string
-      password: string
+    login: Function
+  },
+  users: {
+    me: {
+      read: Function
     }
   }
 }
