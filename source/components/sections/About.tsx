@@ -12,7 +12,7 @@ export default function About({ API }: { API: Directus }) {
                 <Image src={Splash} alt="Splash" width="4032" height="2268" />
             </div>
 
-            <div className='mx-auto container py-8'>
+            <div className='mx-auto container py-8 bg-neutral-100'>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. In totam, eius eaque dignissimos corporis laboriosam aperiam ipsa veritatis assumenda, doloribus dolor explicabo doloremque voluptas quasi saepe ipsam! Fugit, ipsum recusandae!
             </div>
         </>

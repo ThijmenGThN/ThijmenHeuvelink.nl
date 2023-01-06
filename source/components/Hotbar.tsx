@@ -12,14 +12,16 @@ const applets = [
 export default function Hotbar({ API }: { API: Directus }) {
 
     return (
-        <ul className='fixed flex flex-col top-1/2 left-4 rounded-lg border overflow-hidden backdrop-blur-3xl'>
-            {
-                applets.map(app => (
-                    <li className='hover:cursor-pointer p-4'>
-                        {app.icon}
-                    </li>
-                ))
-            }
-        </ul>
+        <div className='fixed flex flex-col top-1/2 left-4 rounded-lg overflow-hidden backdrop-blur-3xl bg-white/40 border-r-2 border-black'>
+            <ul>
+                {
+                    applets.map((app, index) => (
+                        <li key={index} className='hover:cursor-pointer p-4'>
+                            {app.icon}
+                        </li>
+                    ))
+                }
+            </ul>
+        </div>
     )
 }

@@ -1,23 +1,24 @@
 import type Directus from '@/types/Directus'
 
-import About from '@/components/About'
-import Contact from '@/components/Contact'
-import Courses from '@/components/Courses'
-import Education from '@/components/Education'
 import Footer from '@/components/Footer'
 import Hotbar from '@/components/Hotbar'
-import Internships from '@/components/Internships'
 import Navbar from '@/components/Navbar'
-import Projects from '@/components/Projects'
-import Services from '@/components/Services'
-import Skills from '@/components/Skills'
-import Status from '@/components/Status'
-import Work from '@/components/Work'
+
+import Contact from '@/components/sections/Contact'
+import Education from '@/components/sections/Education'
+import About from '@/components/sections/About'
+import Courses from '@/components/sections/Courses'
+import Internships from '@/components/sections/Internships'
+import Projects from '@/components/sections/Projects'
+import Services from '@/components/sections/Services'
+import Skills from '@/components/sections/Skills'
+import Status from '@/components/sections/Status'
+import Work from '@/components/sections/Work'
 
 export default function Index({ API }: { API: Directus }) {
 
   return (
-    <div className='relative'>
+    <>
       <About API={API} />
 
       <Skills API={API} />
@@ -37,6 +38,6 @@ export default function Index({ API }: { API: Directus }) {
 
       <Navbar API={API} />
       <Hotbar API={API} />
-    </div>
+    </>
   )
 }

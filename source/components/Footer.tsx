@@ -11,33 +11,24 @@ export default function Footer({ API }: { API: Directus }) {
                 </div>
                 <div>
                     <p className='font-semibold text-lg'>Personal</p>
-                    <ul>
-                        <li>Skills</li>
-                        <li>Projects</li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                    </ul>
+                    <div>
+                        <p>Skills</p>
+                        <p>Projects</p>
+                    </div>
                 </div>
                 <div>
                     <p className='font-semibold text-lg'>Education</p>
-                    <ul>
-                        <li>Courses</li>
-                        <li>Internships</li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                    </ul>
+                    <div>
+                        <p>Courses</p>
+                        <p>Internships</p>
+                    </div>
                 </div>
                 <div>
                     <p className='font-semibold text-lg'>Services</p>
-                    <ul>
-                        <li>Wiki</li>
-                        <li>Status</li>
-                        <li>Services</li>
-                        <li></li>
-                        <li></li>
-                    </ul>
+                    <div>
+                        <p>Wiki</p>
+                        <p>Status</p>
+                    </div>
                 </div>
             </div>
         </div>
