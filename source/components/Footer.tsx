@@ -1,6 +1,5 @@
-import type Directus from '@/types/Directus'
 
-export default function Footer({ API }: { API: Directus }) {
+export default function Footer() {
 
     return (
         <div className='w-full bg-primary text-white border-t-4 border-secondary'>

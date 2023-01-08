@@ -7,11 +7,11 @@ export default function Index({ API }: { API: Directus }) {
 
   return (
     <div className='flex flex-col min-h-screen'>
-      <Navbar API={API} />
+      <Navbar />
 
       <div className='grow' />
 
-      <Footer API={API} />
+      <Footer />
     </div>
   )
 }

@@ -1,8 +1,7 @@
 import { FiMenu } from 'react-icons/fi'
-import type Directus from '@/types/Directus'
 import Link from 'next/link'
 
-export default function Navbar({ API }: { API: Directus }) {
+export default function Navbar() {
 
     return (
         <>
