@@ -1,22 +1,22 @@
 import Link from 'next/link'
-import { FiGrid, FiHome, FiKey, FiLifeBuoy, FiLogOut, FiPackage, FiPower } from 'react-icons/fi'
+import { FiCreditCard, FiGrid, FiHome, FiKey, FiLifeBuoy, FiLogOut, FiMessageSquare, FiPackage, FiPower } from 'react-icons/fi'
 
 const applets = [
-    {
-        link: '',
-        icon: <FiGrid />
-    },
-    {
-        link: 'services',
-        icon: <FiPackage />
-    },
+    // {
+    // link: '',
+    // icon: <FiGrid />
+    // },
+    // {
+    // link: 'payments',
+    // icon: <FiCreditCard />
+    // },
     {
         link: 'credentials',
         icon: <FiKey />
     },
     {
         link: 'support',
-        icon: <FiLifeBuoy />
+        icon: <FiMessageSquare />
     }
 ]
 

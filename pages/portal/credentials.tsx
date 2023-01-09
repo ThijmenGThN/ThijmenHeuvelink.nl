@@ -29,7 +29,7 @@ export default function Index({ API }: { API: Directus }) {
         <div className='flex mt-4 gap-2'>
           <Switcher link='credentials' />
 
-          <div className='grow rounded-lg bg-white w-full border px-4 py-2 flex flex-col gap-2'>
+          <div className='grow rounded-lg bg-white w-full border px-4 py-2 flex flex-col gap-2 min-h-[180px]'>
             <p className='font-semibold'>Credentials</p>
             <div className='bg-neutral-100 rounded px-4 py-2 w-full parser h-full border relative overflow-hidden'>
               {
