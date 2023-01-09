@@ -5,7 +5,7 @@ export default function Navbar() {
 
     return (
         <>
-            <div className='fixed top-0 left-0 w-full font-semibold bg-white'>
+            <div className='fixed top-0 left-0 w-full font-semibold bg-white border-b'>
                 <div className='container mx-auto'>
                     <div className='flex backdrop-blur-3xl p-2 gap-4'>
                         <Link href='/' className='mt-1 hover:cursor-pointer hover:italic'>Thijmen Heuvelink</Link>

@@ -8,5 +8,7 @@ export default interface Directus {
     me: {
       read: Function
     }
-  }
+  },
+  items: Function,
+  _url: string
 }

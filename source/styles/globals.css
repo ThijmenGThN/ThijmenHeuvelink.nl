@@ -6,6 +6,14 @@ body {
     @apply bg-neutral-100;
 }
 
+.parser a {
+    @apply text-white bg-primary rounded px-2 hover:-m-1 hover:px-3 hover:py-1 transition-all
+}
+
+.parser em {
+    @apply rounded text-white px-2 bg-secondary
+}
+
 * {
     scrollbar-width: none;
     scrollbar-color: #fff #000;

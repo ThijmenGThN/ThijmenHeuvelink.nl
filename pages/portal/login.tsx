@@ -18,9 +18,7 @@ export default function Menu({ API }: { API: Directus }) {
   }
 
   useEffect(() => {
-    API.users.me.read()
-      .then(() => window.location.replace('/portal'))
-      .catch((r: any) => console.error(r))
+    API.auth.logout()
   }, [API])
 
   return (
