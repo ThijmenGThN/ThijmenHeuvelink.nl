@@ -18,7 +18,7 @@ export default function Index({ API }: { API: Directus }) {
           <p className='font-semibold mx-6 mb-28'>
             As you have noticed, this website is currently actively being built.
 
-            It's just a matter of time until something amazing happens, keep an eye out for any cool changes!
+            It is just a matter of time until something amazing happens, keep an eye out for any cool changes!
           </p>
         </div>
       </div>
