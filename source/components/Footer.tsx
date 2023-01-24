@@ -1,13 +1,14 @@
+import Link from "next/link";
 
 export default function Footer() {
 
     return (
-        <div className='w-full bg-primary text-white border-t-4 border-secondary'>
+        <div className='w-full bg-slate-200'>
             <div className='mx-auto container grid grid-cols-4 justify-items-center py-8'>
-                <div className='flex flex-col font-bold'>
+                <Link href="/" className='flex flex-col font-bold'>
                     <p>Thijmen</p>
                     <p>Heuvelink</p>
-                </div>
+                </Link>
                 <div>
                     <p className='font-semibold'>Personal</p>
                     <div>
@@ -16,7 +17,7 @@ export default function Footer() {
                     </div>
                 </div>
                 <div>
-                    <p className='font-semibold'>Education</p>
+                    <p className='font-semibold'>Educations</p>
                     <div>
                         <p className='hover:italic hover:cursor-pointer'>Courses</p>
                         <p className='hover:italic hover:cursor-pointer'>Internships</p>
