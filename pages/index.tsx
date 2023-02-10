@@ -1,12 +1,10 @@
 import Image from 'next/image'
 
-import type Directus from '@/types/Directus'
-
 import Footer from '@/components/Footer'
 import Navbar from '@/components/Navbar'
 import Splash from '@/resources/assets/splash.png'
 
-export default function Index({ API }: { API: Directus }) {
+export default function Index() {
 
   return (
     <div className='flex flex-col min-h-screen'>

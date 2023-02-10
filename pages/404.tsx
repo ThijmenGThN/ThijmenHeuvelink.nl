@@ -7,7 +7,7 @@ import Navbar from '@/components/Navbar'
 import Whoops from '@/resources/assets/whoops.png'
 import Link from 'next/link'
 
-export default function Index({ API }: { API: Directus }) {
+export default function Index() {
 
   return (
     <div className='flex flex-col min-h-screen'>

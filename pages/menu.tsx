@@ -1,4 +1,3 @@
-import type Directus from '@/types/Directus'
 import Link from 'next/link'
 
 import Navbar from '@/components/Navbar'
@@ -14,7 +13,7 @@ const applets = [
   }
 ]
 
-export default function Menu({ API }: { API: Directus }) {
+export default function Menu() {
 
   return (
     <>
