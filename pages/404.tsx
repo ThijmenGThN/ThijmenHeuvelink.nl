@@ -1,7 +1,5 @@
 import Image from 'next/image'
 
-import type Directus from '@/types/Directus'
-
 import Footer from '@/components/Footer'
 import Navbar from '@/components/Navbar'
 import Whoops from '@/resources/assets/whoops.png'
