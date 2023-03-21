@@ -1,24 +1,20 @@
-import { FiMenu } from 'react-icons/fi'
 import Link from 'next/link'
 
-export default function Navbar() {
+import { FiAlignRight } from 'react-icons/fi'
+
+export default function Component() {
 
     return (
-        <>
-            <div className='fixed top-0 left-0 w-full font-semibold bg-white border-b'>
-                <div className='container mx-auto'>
-                    <div className='flex backdrop-blur-3xl p-2 gap-4'>
-                        <Link href='/' className='mt-1 hover:cursor-pointer hover:italic'>Thijmen Heuvelink</Link>
+        <div className='container mx-auto p-4 flex'>
+            <Link href="/">
+                <p className='text-2xl p-4 font-semibold'>
+                    Thijmen Heuvelink
+                </p>
+            </Link>
 
-                        <div className='grow' />
-
-                        <Link href="https://wiki.thijmenheuvelink.nl" className='mt-1.5 text-sm hover:cursor-pointer hover:italic'>wiki</Link>
-                        <Link href="/menu" className='text-white px-4 py-2 rounded bg-black hover:cursor-pointer hover:-m-1 hover:px-5 hover:py-3 transition-all'>
-                            <FiMenu />
-                        </Link>
-                    </div>
-                </div>
-            </div>
-        </>
+            <button className='ml-auto text-3xl font-semibold p-4'>
+                <FiAlignRight />
+            </button>
+        </div>
     )
 }

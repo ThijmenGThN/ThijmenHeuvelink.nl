@@ -3,15 +3,19 @@
 @tailwind utilities;
 
 body {
-    overflow: overlay;
-    @apply bg-neutral-100;
+    @apply bg-neutral-100
 }
 
-*::-webkit-scrollbar {
-    width: 14px;
+p {
+    @apply text-dark
 }
 
-*::-webkit-scrollbar-thumb {
-    @apply bg-dark;
-    border-radius: 8px;
+::-webkit-scrollbar {
+    background: #171717;
+}
+
+::-webkit-scrollbar-thumb {
+    border: solid 0.25rem #171717;
+    border-radius: 1rem;
+    background: #f5f5f5;
 }
