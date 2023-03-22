@@ -1,5 +1,5 @@
 {
-  "name": "thijmenheuvelink.nl",
+  "name": "leaflet",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -7,17 +7,17 @@
     "build": "next build",
     "start": "next start",
     "lint": "tsc --noemit && next lint",
-    "test": "./node_modules/.bin/cypress open --project source/tests",
-    "ci": "yarn && yarn build && yarn start"
+    "ci": "yarn && yarn build && yarn start",
+    "test": "./node_modules/.bin/cypress open --project source/tests"
   },
   "dependencies": {
     "next": "13.0.3",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-icons": "^4.6.0",
     "typescript": "4.8.4"
   },
   "devDependencies": {
+    "@directus/sdk": "^10.3.1",
     "@types/node": "18.11.9",
     "@types/react": "18.0.25",
     "@types/react-dom": "18.0.8",
@@ -25,7 +25,10 @@
     "cypress": "^12.2.0",
     "eslint": "8.27.0",
     "eslint-config-next": "13.0.3",
+    "hex-rgb": "^5.0.0",
     "postcss": "^8.4.19",
+    "react-fast-marquee": "^1.3.5",
+    "react-icons": "^4.6.0",
     "tailwindcss": "^3.2.4"
   }
 }

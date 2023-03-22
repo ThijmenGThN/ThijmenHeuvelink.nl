@@ -2,5 +2,5 @@ module.exports = {
   reactStrictMode: true,
   swcMinify: true,
   publicRuntimeConfig: { CORS_ENDPOINT: process.env.CORS_ENDPOINT },
-  images: { domains: ['picsum.photos'] }
+  serverRuntimeConfig: { STATIC_TOKEN: process.env.STATIC_TOKEN }
 }

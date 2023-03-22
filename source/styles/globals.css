@@ -3,29 +3,19 @@
 @tailwind utilities;
 
 body {
-    @apply bg-neutral-100;
+    @apply bg-white
 }
 
-.parser a {
-    @apply text-white bg-primary rounded px-2 hover:-m-1 hover:px-3 hover:py-1 transition-all
+p {
+    @apply text-dark
 }
 
-.parser em {
-    @apply rounded text-white px-2 bg-secondary
+::-webkit-scrollbar {
+    background: #171717;
 }
 
-* {
-    scrollbar-width: none;
-    scrollbar-color: #fff #000;
-}
-
-*::-webkit-scrollbar {
-    width: 18px;
-    background-color: #000;
-}
-
-*::-webkit-scrollbar-thumb {
-    background-color: #fff;
-    border-radius: 8px;
-    border: 5px solid #000;
+::-webkit-scrollbar-thumb {
+    border: solid 0.25rem #171717;
+    border-radius: 1rem;
+    background: #f5f5f5;
 }
