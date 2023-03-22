@@ -104,7 +104,7 @@ export default function Component() {
 
                 <div className='flex flex-col gap-4'>
                     <p className="font-semibold">Socials</p>
-                    <ul className="flex gap-4">
+                    <ul className="flex flex-wrap gap-4">
                         {
                             socials.map((social: socialType, index: number) =>
                                 social.link
