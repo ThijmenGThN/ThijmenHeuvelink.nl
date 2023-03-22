@@ -98,11 +98,11 @@ export default function Component() {
       <div className='container mx-auto px-8 my-72 grid grid-cols-1 gap-16 md:grid-cols-2'>
         <div className='flex flex-col gap-2'>
           <p className="text-3xl font-bold">Hi,</p>
-          <p className="text-6xl font-bold">I'm Thijmen</p>
+          <p className="text-6xl font-bold">I&apos;m Thijmen</p>
           <p className="text-xl italic mt-8">Passionate about code, relentless in learning, dedicated to helping.</p>
         </div>
         <div className='flex justify-center items-center'>
-          <p className='font-semibold text-lg'>This website is in the works, hold on it'll be amazing in no time!</p>
+          <p className='font-semibold text-lg'>This website is in the works, hold on it&apos;ll be amazing in no time!</p>
         </div>
       </div>
 
