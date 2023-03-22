@@ -96,25 +96,27 @@ export default function Component() {
       <NavBar />
 
       <div className='container mx-auto px-8 my-72 grid grid-cols-1 gap-16 md:grid-cols-2'>
-        <div className='bg-green-500/50'>
-          <p>Passionate about code, relentless in learning, dedicated to helping.</p>
+        <div className='flex flex-col gap-2'>
+          <p className="text-3xl font-bold">Hi,</p>
+          <p className="text-6xl font-bold">I'm Thijmen</p>
+          <p className="text-xl italic mt-8">Passionate about code, relentless in learning, dedicated to helping.</p>
         </div>
-        <div className='bg-red-500/50'>
-          a
+        <div className='flex justify-center items-center'>
+          <p className='font-semibold text-lg'>This website is in the works, hold on it'll be amazing in no time!</p>
         </div>
       </div>
 
       <Toolset color='#fafafa' direction='left' tools={tools} />
       <div className='pb-96 bg-neutral-100 py-16'>
         <div className='mx-auto container px-8'>
-          abc
+          {/* soon */}
         </div>
       </div>
 
       <Toolset color='#2d2d2d' direction='right' tools={skills} dark />
       <div className='pb-96 bg-dark text-neutral-100 py-16'>
         <div className='mx-auto container px-8'>
-          abc
+          {/* soon */}
         </div>
       </div>
 
