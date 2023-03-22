@@ -1,5 +1,5 @@
 import Footer from '@/components/Footer'
-import NavBar from '@/components/NavBar'
+import NavBar from '@/components/Navbar'
 import InTouch from '@/components/widgets/InTouch'
 import Toolset from '@/components/widgets/Toolset'
 
