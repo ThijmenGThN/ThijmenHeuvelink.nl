@@ -22,7 +22,6 @@ export default function Component({ color, tools, direction, dark }: propTypes) 
         <Marquee className='py-12 overflow-hidden'
             style={{ backgroundColor: color }}
             direction={direction}
-            pauseOnHover
             speed={40}
             gradientColor={[red, green, blue]}
             gradientWidth={100}

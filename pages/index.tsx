@@ -1,93 +1,10 @@
+import Directus from '@/resources/lib/directus'
+
 import Footer from '@/components/Footer'
 import NavBar from '@/components/Navbar'
 import InTouch from '@/components/widgets/InTouch'
-import Toolset from '@/components/widgets/Toolset'
-
-import { FaBootstrap, FaCoffee, FaCss3, FaNodeJs, FaReact, FaWordpress } from 'react-icons/fa'
-import { SiDirectus, SiHtml5, SiJavascript, SiLua, SiPhp, SiPostgresql, SiPrisma, SiPython, SiTailwindcss } from 'react-icons/si'
-import { TbBrandLaravel, TbBrandNextjs, TbBrandTypescript, TbFileDescription } from 'react-icons/tb'
-
-const skills = [
-  {
-    name: 'Javascript',
-    icon: <SiJavascript />
-  },
-  {
-    name: 'Java',
-    icon: <FaCoffee />
-  },
-  {
-    name: 'Typescript',
-    icon: <TbBrandTypescript />
-  },
-  {
-    name: 'Lua',
-    icon: <SiLua />
-  },
-  {
-    name: 'Batch',
-    icon: <TbFileDescription />
-  },
-  {
-    name: 'PHP',
-    icon: <SiPhp />
-  },
-  {
-    name: 'CSS',
-    icon: <FaCss3 />
-  },
-  {
-    name: 'HTML',
-    icon: <SiHtml5 />
-  },
-  {
-    name: 'Python',
-    icon: <SiPython />
-  },
-  {
-    name: 'SQL',
-    icon: <SiPostgresql />
-  }
-]
-
-const tools = [
-  {
-    name: 'React',
-    icon: <FaReact />
-  },
-  {
-    name: 'NextJS',
-    icon: <TbBrandNextjs />
-  },
-  {
-    name: 'Directus',
-    icon: <SiDirectus />
-  },
-  {
-    name: 'Laravel',
-    icon: <TbBrandLaravel />
-  },
-  {
-    name: 'Prisma',
-    icon: <SiPrisma />
-  },
-  {
-    name: 'Tailwind',
-    icon: <SiTailwindcss />
-  },
-  {
-    name: 'Bootstrap',
-    icon: <FaBootstrap />
-  },
-  {
-    name: 'Wordpress',
-    icon: <FaWordpress />
-  },
-  {
-    name: 'Node',
-    icon: <FaNodeJs />
-  }
-]
+import Tools from '@/components/index/Tools'
+import Skills from '@/components/index/Skills'
 
 export default function Component() {
 
@@ -103,23 +20,19 @@ export default function Component() {
         </div>
       </div>
 
-      <Toolset color='#fafafa' direction='left' tools={tools} />
-      <div className='pb-36 bg-neutral-100 py-16'>
-        <div className='mx-auto container px-8'>
-          <p className='font-semibold text-lg'>This website is in the works, hold on it&apos;ll be amazing in no time!</p>
-        </div>
-      </div>
-
-      <Toolset color='#2d2d2d' direction='right' tools={skills} dark />
-      <div className='pb-36 bg-dark text-neutral-100 py-16'>
-        <div className='mx-auto container px-8'>
-          <p className='font-semibold text-lg'>This website is in the works, hold on it&apos;ll be amazing in no time!</p>
-        </div>
-      </div>
-
+      <Tools />
+      <Skills />
       <InTouch />
-
+      
       <Footer />
     </>
   )
+}
+
+export async function getServerSideProps() {
+  const SDK = await Directus({ useAdmin: true })
+
+  return {
+    props: {}
+  }
 }
