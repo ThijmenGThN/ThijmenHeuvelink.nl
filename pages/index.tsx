@@ -1,3 +1,5 @@
+import Directus from '@/resources/lib/directus'
+
 import Footer from '@/components/Footer'
 import NavBar from '@/components/Navbar'
 import InTouch from '@/components/widgets/InTouch'
@@ -89,7 +91,7 @@ const tools = [
   }
 ]
 
-export default function Component() {
+export default function Component({ toolsx }: { toolsx: Array<any> }) {
 
   return (
     <>
@@ -111,9 +113,18 @@ export default function Component() {
       </div>
 
       <Toolset color='#2d2d2d' direction='right' tools={skills} dark />
-      <div className='pb-36 bg-dark text-neutral-100 py-16'>
-        <div className='mx-auto container px-8'>
-          <p className='font-semibold text-lg'>This website is in the works, hold on it&apos;ll be amazing in no time!</p>
+      <div className='pb-36 bg-dark py-16'>
+        <div className='mx-auto container text-neutral-100 px-8'>
+
+          {
+            toolsx.map((tool: any) => (
+              <div>
+                <p className='text-neutral-100'>{tool.name}</p>
+                {tool.icon}
+              </div>
+            ))
+          }
+
         </div>
       </div>
 
@@ -122,4 +133,14 @@ export default function Component() {
       <Footer />
     </>
   )
+}
+
+export async function getServerSideProps() {
+  const SDK = await Directus({ useAdmin: true })
+
+  return {
+    props: {
+      toolsx: (await SDK.items('tools').readByQuery()).data
+    }
+  }
 }

@@ -1,6 +1,7 @@
 
 import Link from 'next/link'
 import { FaDiscord, FaGithub } from 'react-icons/fa'
+import { SiGmail } from 'react-icons/si'
 
 interface itemType {
     name: string
@@ -55,17 +56,30 @@ const socials = [
         color: {
             normal: 'bg-[#5865F2]'
         }
+    },
+    {
+        name: 'E-mail',
+        icon: <SiGmail />,
+        link: 'mailto:mail@thijmenheuvelink.nl',
+        color: {
+            normal: 'bg-blue-500',
+            hover: 'bg-blue-600'
+        }
     }
 ]
 
 export default function Component() {
 
     return (
-        <div className="bg-white px-8 py-10">
+        <div className="bg-white px-8 pb-10">
             <div className="container mx-auto py-8 flex flex-col gap-8">
-                <p className="text-2xl font-semibold">
-                    Thijmen Heuvelink
-                </p>
+                <div className='flex'>
+                    <Link href="/">
+                        <p className='uppercase rounded bg-dark text-neutral-100 text-2xl px-4 py-2 font-bold'>
+                            Heuvelink
+                        </p>
+                    </Link>
+                </div>
 
                 <div className="grid grid-cols-2 gap-4">
                     <div>
@@ -109,13 +123,13 @@ export default function Component() {
                             socials.map((social: socialType, index: number) =>
                                 social.link
                                     ? (
-                                        <li key={index} className="group hover:cursor-pointer">
+                                        <li key={index} className="hover:cursor-pointer hover:brightness-95">
                                             <Link href={social.link} target="_blank">
                                                 <div className='flex items-center'>
-                                                    <div className={'text-neutral-100 p-3 rounded-l ' + social.color.normal + ` hover:${social.color.hover}`}>
+                                                    <div className={`text-neutral-100 p-3 rounded-l ${social.color.normal}`}>
                                                         {social.icon}
                                                     </div>
-                                                    <p className='font-mono bg-neutral-100 px-4 py-2 rounded-r group-hover:bg-neutral-200'>{social.name}</p>
+                                                    <p className='font-mono bg-neutral-100 px-4 py-2 rounded-r'>{social.name}</p>
                                                 </div>
                                             </Link>
                                         </li>
@@ -123,7 +137,7 @@ export default function Component() {
                                     : (
                                         <li key={index}>
                                             <div className='flex items-center'>
-                                                <div className={'text-neutral-100 p-3 rounded-l ' + social.color.normal}>
+                                                <div className={`text-neutral-100 p-3 rounded-l ${social.color.normal}`}>
                                                     {social.icon}
                                                 </div>
                                                 <p className='font-mono bg-neutral-100 px-4 py-2 rounded-r'>{social.name}</p>
