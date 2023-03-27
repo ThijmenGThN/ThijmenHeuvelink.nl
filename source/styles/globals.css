@@ -2,10 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-    @apply bg-white
-}
-
 p {
     @apply text-dark
 }

@@ -30,7 +30,7 @@ export default function Component() {
 }
 
 export async function getServerSideProps() {
-  const SDK = await Directus({ useAdmin: true })
+  // const SDK = await Directus({ useAdmin: true })
 
   return {
     props: {}
