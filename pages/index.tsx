@@ -16,14 +16,14 @@ export default function Component() {
         <div className='flex flex-col gap-2'>
           <p className="text-3xl font-bold">Hi,</p>
           <p className="text-6xl font-bold">I&apos;m Thijmen</p>
-          <p className="text-xl italic mt-8">Passionate about code, relentless in learning, dedicated to helping.</p>
+          {/* <p className="text-xl italic mt-8">Passionate about code, relentless in learning, dedicated to helping.</p> */}
         </div>
       </div>
 
       <Tools />
       <Skills />
       <InTouch />
-      
+
       <Footer />
     </>
   )
