@@ -58,7 +58,7 @@ const socials = [
         }
     },
     {
-        name: 'E-mail',
+        name: 'thijmen@heuve.link',
         icon: <SiGmail />,
         link: 'mailto:mail@thijmenheuvelink.nl',
         color: {
