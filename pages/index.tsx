@@ -2,11 +2,12 @@ import Directus from '@/resources/lib/directus'
 
 import Footer from '@/components/Footer'
 import NavBar from '@/components/Navbar'
-import InTouch from '@/components/widgets/InTouch'
-import Tools from '@/components/index/Tools'
-import Skills from '@/components/index/Skills'
+import InTouch from '@/components/pages/InTouch'
+import Tools from '@/components/pages/Tools'
+import Skills from '@/components/pages/Skills'
+import Showcase from '@/components/widgets/Showcase'
 
-export default function Component() {
+export default function Component({projects}: {projects: any}) {
 
   return (
     <>
@@ -18,6 +19,8 @@ export default function Component() {
           <p className="text-6xl font-bold">I&apos;m Thijmen</p>
           {/* <p className="text-xl italic mt-8">Passionate about code, relentless in learning, dedicated to helping.</p> */}
         </div>
+        
+        <Showcase projects={projects} />
       </div>
 
       <Tools />
@@ -30,9 +33,16 @@ export default function Component() {
 }
 
 export async function getServerSideProps() {
-  // const SDK = await Directus({ useAdmin: true })
+  let props: any = {}
 
-  return {
-    props: {}
-  }
+  const SDK = await Directus({ useAdmin: true })
+
+  let { data } = await SDK.items('projects').readByQuery({sort: ['-date_updated']})
+
+  if (data)
+    props['projects'] = data.map((project: any) => ({
+      image: SDK.url + '/assets/' + project.image
+    }))
+
+  return { props }
 }
