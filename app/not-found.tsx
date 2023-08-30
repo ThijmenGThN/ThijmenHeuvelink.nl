@@ -1,31 +1,9 @@
 import Link from "next/link"
-import Image from 'next/image'
-
-import aLogo from '@/assets/logo.webp'
 
 export default function Page() {
 
     return (
         <div className="bg-white">
-            <header className="absolute inset-x-0 top-0 z-50">
-                <nav className="flex items-center justify-between p-6 lg:px-8" aria-label="Global">
-                    <div className="flex lg:flex-1">
-                        <Link href="/">
-                            <Image
-                                className="h-8 w-auto"
-                                src={aLogo}
-                                alt=""
-                            />
-                        </Link>
-                    </div>
-                    <div className="flex lg:flex-1 lg:justify-end">
-                        <Link target="_blank" href="https://github.com/ThijmenGThN/next-leaflet/issues" className="text-sm font-semibold leading-6 text-gray-900">
-                            Report an issue <span aria-hidden="true">&rarr;</span>
-                        </Link>
-                    </div>
-                </nav>
-            </header>
-
             <div className="relative isolate px-6 pt-14 lg:px-8">
                 <div
                     className="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
@@ -54,9 +32,6 @@ export default function Page() {
                                 className="rounded-md bg-primary px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-primary-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
                             >
                                 Back to homepage
-                            </Link>
-                            <Link target="_blank" href="https://github.com/ThijmenGThN/next-leaflet" className="text-sm font-semibold leading-6 text-gray-900">
-                                Contribute <span aria-hidden="true">→</span>
                             </Link>
                         </div>
                     </div>
