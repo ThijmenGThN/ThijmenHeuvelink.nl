@@ -11,8 +11,8 @@ import '@/styles/globals.css'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-    title: 'next-leaflet',
-    description: 'An optimized tech stack for efficiency.'
+    title: 'Thijmen Heuvelink',
+    description: 'A software developer from The Netherlands'
 }
 
 const inter = Inter({ subsets: ['latin'] })
