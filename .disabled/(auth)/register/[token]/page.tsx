@@ -1,13 +1,14 @@
 "use client"
 
 import { z } from 'zod'
-import Link from 'next/link'
 import Image from 'next/image'
 import jwt from 'jsonwebtoken'
 import { signIn } from 'next-auth/react'
 import { useTranslations } from 'next-intl'
 
+import { Link } from '@/helpers/navigation'
 import gravatar from '@/helpers/gravatar'
+import Encoding from '@/helpers/encoding'
 
 import Form from '@/components/Form'
 
@@ -18,7 +19,7 @@ const callbackUrl = '/dashboard'
 export default function Page({ params: { token } }: { params: { token: string } }) {
     const t = useTranslations('auth')
 
-    let { email } = jwt.decode(token) as { email: string | undefined }
+    let { email } = jwt.decode(Encoding.fromBase64(token)) as { email: string | undefined }
     if (!email) throw new Error(t('the-registration-has-reached-its-expiration-date'))
 
     const onSubmit = async ({ name, password }: any) => {
