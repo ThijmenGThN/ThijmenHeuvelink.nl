@@ -5,7 +5,7 @@ export default function Header() {
 
     return (
         <>
-            <div className="fixed w-screen">
+            <div className="fixed z-50 w-full bg-white/90 backdrop-blur-sm">
                 <div className="container mx-auto flex justify-between">
 
                     <p className="font-semibold text-xl my-8">
@@ -14,16 +14,16 @@ export default function Header() {
 
                     <div className="flex gap-x-12 items-center">
                         <div className="flex gap-x-6">
-                            <Link href="#">
+                            <Link href="#about">
                                 About
                             </Link>
-                            <Link href="#">
-                                Work
+                            <Link href="#skills">
+                                Skills
                             </Link>
-                            <Link href="#">
+                            <Link href="#testimonials">
                                 Testimonials
                             </Link>
-                            <Link href="#">
+                            <Link href="#contact">
                                 Contact
                             </Link>
                         </div>
