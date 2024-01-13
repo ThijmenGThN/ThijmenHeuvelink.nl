@@ -3,131 +3,184 @@
 
 An optimized tech stack for efficiency, an all-in-one solution to quickly build modern web apps.
 
-<b>Looking for the [(directus)](https://github.com/ThijmenGThN/next-directus) branch?</b>
+![preview](https://i.imgur.com/oulW1VO.png)
 
-![preview](https://i.imgur.com/uNKXhM7.png)
 
-<b>For now; next-leaflet is deemed to be stable, but usage in a production environment is not suggested.</b>
 
-<b>Use at your own discretion!</b>
+### Powered by
 
-# Features
+- [NextJS](https://nextjs.org)
+- [Pocketbase](https://pocketbase.io)
 
-- User authorization [(nextauth)](https://next-auth.js.org/)
-    - Credentials
-    - OAuth2 [(providers)](https://next-auth.js.org/providers/)
-- Localization [(next-intl)](https://next-intl-docs.vercel.app)
-- Emails [(react email)](https://react.email)
-- Form validation [(zod)](https://zod.dev)
 
-# Build with
 
-- NextJS [(site)](https://nextjs.org)
-- NextAuth [(site)](https://next-auth.js.org/)
-- Next-Intl [(site)](https://next-intl-docs.vercel.app)
-- Prisma [(site)](https://www.prisma.io)
-- React Email [(site)](https://react.email)
-- TailwindCSS [(site)](https://tailwindcss.com)
+### Features
 
-# Getting started
+- [Realtime Database](https://pocketbase.io)
+- [Authentication](https://pocketbase.io/docs/authentication/)
+- [File Storage](https://pocketbase.io/docs/files-handling/)
+- [Localization](https://next-intl-docs.vercel.app)
 
-## Dependencies
 
-- NodeJS [(site)](https://nodejs.org) ` >16.8 `
-- Docker [(site)](https://docker.com/get-started/) ` >24 `
-- Docker Compose [(site)](https://docs.docker.com/compose/install) ` >1.28 `
 
-## Setup
+### Includes
 
-1. Clone the repository to your system. 
-```sh
-git clone https://github.com/ThijmenGThN/next-leaflet
-```
-```sh
-cd next-leaflet
-```
+- [Tailwind](https://tailwindcss.com)
+- [Gravatar](https://gravatar.com)
+- [Heroicons](https://heroicons.com)
+- [HeadlessUI](https://headlessui.com)
 
-2. Preparing the environment, it is recommend to use the sample file.
-```sh
-cp sample.env .env
-```
-```sh
-nano .env
-```
 
-3. Install the required dependencies, by default we do this with npm.
-```
-npm install
-```
 
-## Development
+## Getting Started
 
-1. Running Next.js in devmode.
-```sh
-npm run dev
-```
+<details><summary>Development</summary>
 
-2. Starting the database.
-```sh
-docker-compose up -d
-```
-> <b>A fresh installation needs an additional step.</b><br/>
-> Apply prisma's schema to the database.
-> ```sh
-> npx prisma db push
-> ```
+### Dependencies
 
-## Deployment
+- Install docker and docker compose.
+    
+    - Windows: [Docker Desktop](https://www.docker.com/get-started/)
+    - Linux: [Guide from Digital Ocean](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-compose-on-ubuntu-22-04)
+    - Ubuntu >20.04: [Guide from Thijmen Heuvelink](https://wiki.thijmenheuvelink.nl/linux/install-docker)
 
-To deploy next-leaflet we use docker by default, if you'd like to do it without docker, follow the <b>Development</b> procedure whilst changing step 1 to ` npm run deploy `.
+### Development
 
-> <b>Set the right variables.</b><br />
-> Ensure that ` COMPOSE_PROFILES ` has been set to ` prod ` in the environment file so docker knows to also deploy the ` app ` service alongside the ` database `.
->
-> Also make sure that the ` PRISMA_CONNECTOR ` has been set right, the default "<b>localhost</b>" won't work in deployment, instead replace it with "<b>database</b>".
+> Ensure that you've [cloned](https://git-scm.com/docs/git-clone) the repository and are on the correct path. 
 
-0. Pull down any existing services that might run in the background.
-```sh
-docker-compose down
-```
+#### Start
 
-1. Start next-leaflet in deployment-mode.
-```sh
-docker-compose up -d
-```
+``` docker compose up ```
 
-> <b>next-leaflet should (after a while) go up on port ` 3000 `.</b><br />
-> Display the console logs if the service is not going online. Do take note that the port might differ if adjusted in the environment file.
-> ```sh
-> docker-compose logs
-> ```
+The stack is now accessible on your preferred browser at http://localhost:3000, the pocketbase interface can be found at http://localhost:3000/pb/_/
 
-### GitHub Actions
+#### Stop
 
-Setting up CI/CD with next-leaflet is not only a breeze to setup but also very useful to eliminate deployment steps.
+To stop the stack from running simply execute the ` CTRL + C ` shortcut.
 
-<b>This setup will guide you to deploy your next-leaflet app on an ssh-accessible host.</b>
+</details>
 
-#### Configure environment variables
 
-0. Requirements
- - Ensure that you have access to an active GitHub Actions (runner).
- - Install docker(-compose) on the server you'd like to deploy next-leaflet on.
-    - Docker [(site)](https://docker.com/get-started/) ` >24 `
-    - Docker Compose [(site)](https://docs.docker.com/compose/install) ` >1.28 `
 
-1. Within GitHub navigate to ` Settings > Secrets and variables > Actions `.
+<details><summary>Production</summary>
 
-2. Create the following repository secrets:
+### Preparation
 
-Name|Expects|Description
--|-|-
-SSH_KEY|Private Key|Generate a new ssh key without a password.
-SSH_HOST|IP Address|The address of your server with an Actions (runner) active.
-SSH_USER|Username|Host system user where next-leaflet should be deploy on.
-SSH_PORT|Port Number|This usually refers to the default ssh port 22.
-APP_ENV|Environment|A copy of .env.sample with adjusted values for deployment.
+1. Create a ` .env ` file:
+   - Locate the ` .env.sample ` file in your project directory.
+   - Duplicate or copy the contents of this file.
+   - Rename the duplicate or copied file to ` .env `. 
 
-3. Designate a trigger branch within the ` .github/deploy.yml ` file.
+2. Configure the environment variable:
+   - Open the ` .env ` file in a text editor.
+   - Locate the line that defines the ` PRODUCTION ` variable.
+   - Set the value of ` PRODUCTION ` to ` "true" ` (include the quotes).
 
-> Any change pushed to the targeted branch should now trigger a request to deploy next-leaflet via docker-compose.
+### Production
+
+#### Start
+
+> Unlike in the development steps we now add the  ` -d ` flag which makes the service run in the background.
+
+``` docker compose up -d ```
+
+The stack is now accessible on your preferred browser at http://localhost:3000 or on a differently defined port as stated in the `.env` file, the pocketbase interface can be found at http://localhost:3000/pb/_/
+
+
+
+#### Stop
+
+``` docker compose down ```
+
+</details>
+
+
+
+## Fundamentals
+
+<details><summary>Install Node Packages</summary>
+
+#### Install
+
+``` docker compose exec next npm i -D <package> ```
+
+#### Remove
+
+``` docker compose exec next npm r <package> ```
+
+</details>
+
+> ` NPM ` ` MODULES `
+
+
+<details><summary>Next Navigation API</summary>
+
+Instead of using `next/navigation` you should opt for the helper at ` @helpers/navigation `, this is a replacement required by ` next-intl ` it offers the same functionality.
+
+</details>
+
+> ` Link ` ` useRouter ` ` Redirect ` ` usePathname `
+
+
+<details><summary>Accessing Pocketbase</summary>
+
+Pocketbase has a client executable, below is an example that outputs all available commands. You can learn more on how to use it [here](https://pocketbase.io/docs).
+
+``` docker compose exec pocketbase pocketbase --help ```
+
+</details>
+
+> ` CLI `
+
+
+<details><summary>Schema Snapshots</summary>
+
+Executing the following will generate a schema snapshot in ` src/backend/migrations `, note that this process does not save any collection data.
+
+``` docker compose exec pocketbase pocketbase migrate collections ```
+
+</details>
+
+> ` Pocketbase ` ` Migrations `
+
+
+
+## Extras
+
+<details><summary>Continuous Integration</summary>
+
+### Preparation
+
+> The workflow has been set up to connect to any VPS via SSH as defined in the Repository Secrets.
+
+1. Install docker and docker compose on your VPS.
+    
+    - Windows: [Docker Desktop](https://www.docker.com/get-started/)
+    - Linux: [Guide from Digital Ocean](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-compose-on-ubuntu-22-04)
+    - Ubuntu >20.04: [Guide from Thijmen Heuvelink](https://wiki.thijmenheuvelink.nl/linux/install-docker)
+
+2. Setup a Runner on GitHub
+
+    1. Create a new Runner
+    
+        - Navigate to ` Settings > Actions > Runners `
+
+            > To set up a new self-hosted runner, follow the instructions provided by GitHub to configure the runner to listen for jobs. It is advisable to install it as a service.
+
+    2. Define environment variables
+    
+        - Navigate and create new secrets in `Settings > Secrets and variables > Actions`
+
+            Name|Expects|Description
+            -|-|-
+            SSH_KEY|Private Key|Generated private ssh-key which will beused    to access the VPS.
+            SSH_HOST|IP Address|The address of your VPS that runs theGitHub    Actions Runner.
+            SSH_USER|Username|System user which should be utilized for deployments.
+            SSH_PORT|Port Number|The port that will be used to connectwith     the VPS, default is 22.
+            APP_ENV|Environment|Contents of the ` .env ` file withadjusted     values for deployment.
+
+### Activation
+
+Define the branch in `.github/deploy.yml` and modify it from being ` disabled ` to an existing branch. Any modifications made to that particular branch will automatically trigger the Action, deploying your stack to your VPS.
+
+</details>
