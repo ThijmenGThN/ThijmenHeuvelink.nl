@@ -10,9 +10,7 @@ import { locales } from '@/helpers/navigation'
 import '@/styles/globals.css'
 
 export const metadata: Metadata = {
-    title: 'next-leaflet',
-    description: 'An optimized tech stack for efficiency.',
-    manifest: 'manifest.json'
+    title: 'Thijmen Heuvelink'
 }
 
 const inter = Inter({ subsets: ['latin'] })

@@ -1,155 +1,59 @@
-"use client"
 
 import Image from 'next/image'
-import { useState } from 'react'
-import { Dialog } from '@headlessui/react'
-import { useTranslations } from 'use-intl'
-import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 
-import { Link } from '@/helpers/navigation'
-import { classNames } from '@/helpers/tailwind'
+import { Link } from "@/helpers/navigation"
 
-import LocaleSwitcher from '@/components/LocaleSwitcher'
+import { EnvelopeIcon, MapPinIcon } from "@heroicons/react/24/outline"
 
-import assetLogo from '@/assets/logo.webp'
-
-const navigation = [
-    { name: 'Repository', href: 'https://github.com/ThijmenGThN/next-leaflet' },
-    { name: 'Next.js', href: 'https://nextjs.org' },
-    { name: 'Pocketbase', href: 'https://pocketbase.io' },
-    { name: 'Tailwind', href: 'https://tailwindcss.com' },
-]
+import assetAvatar from '@/assets/avatar.jpeg'
 
 export default function Hero() {
-    const t = useTranslations()
-    const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
     return (
-        <div className="bg-white">
-            <header className="absolute inset-x-0 top-0 z-50">
-                <nav className="flex items-center justify-between p-6 lg:px-8" aria-label="Global">
-                    <div className="flex lg:flex-1">
-                        <div className="-m-1.5 p-1.5">
-                            <Image
-                                className="h-8 w-auto"
-                                src={assetLogo}
-                                alt=""
-                            />
-                        </div>
-                    </div>
-                    <div className={classNames(
-                        mobileMenuOpen ? 'hidden' : 'lg:hidden',
-                        "flex"
-                    )}>
-                        <button
-                            type="button"
-                            className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
-                            onClick={() => setMobileMenuOpen(true)}
-                        >
-                            <Bars3Icon className="h-6 w-6" aria-hidden="true" />
-                        </button>
-                    </div>
-                    <div className="hidden lg:flex lg:gap-x-12">
-                        {navigation.map((item) => (
-                            <Link key={item.name} target='_blank' href={item.href} className="text-sm font-semibold leading-6 text-gray-900">
-                                {item.name}
-                            </Link>
-                        ))}
-                    </div>
-                    <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-                        <LocaleSwitcher />
-                    </div>
-                </nav>
-                <Dialog as="div" className="lg:hidden" open={mobileMenuOpen} onClose={setMobileMenuOpen}>
-                    <div className="fixed inset-0 z-50" />
-                    <Dialog.Panel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
-                        <div className="flex items-center justify-between">
-                            <div className="-m-1.5 p-1.5">
-                                <Image
-                                    className="h-8 w-auto"
-                                    src={assetLogo}
-                                    alt=""
-                                />
-                            </div>
-                            <button
-                                type="button"
-                                className="-m-2.5 rounded-md p-2.5 text-gray-700"
-                                onClick={() => setMobileMenuOpen(false)}
-                            >
-                                <XMarkIcon className="h-6 w-6" aria-hidden="true" />
-                            </button>
-                        </div>
-                        <div className="mt-6 flow-root">
-                            <div className="-my-6 divide-y divide-gray-500/10">
-                                <div className="space-y-2 py-6">
-                                    {navigation.map((item) => (
-                                        <Link
-                                            key={item.name}
-                                            href={item.href}
-                                            target='_blank'
-                                            className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
-                                        >
-                                            {item.name}
-                                        </Link>
-                                    ))}
-                                </div>
-                                <div className="py-6 flex flex-col items-center">
-                                    <LocaleSwitcher />
-                                </div>
-                            </div>
-                        </div>
-                    </Dialog.Panel>
-                </Dialog>
-            </header>
+        <div className="container mx-auto grid grid-cols-3 gap-x-16">
+            <div className="col-span-2 flex flex-col gap-y-12 py-24">
+                <div className="flex flex-col gap-y-4">
+                    <p className='text-3xl font-semibold'>
+                        Hello, my name is Thijmen 👋
+                    </p>
+                    <p>
+                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Minima ratione doloribus rerum sed eum. Totam, dolor voluptatem est eum dolorem aspernatur doloribus facere ullam minus culpa, aliquid voluptatum ut corporis.
+                    </p>
+                </div>
 
-            <div className="relative isolate px-6 pt-14 lg:px-8">
-                <svg
-                    className="absolute inset-0 -z-10 h-full w-full stroke-gray-200 [mask-image:radial-gradient(100%_100%_at_top_right,white,transparent)]"
-                    aria-hidden="true"
-                >
-                    <defs>
-                        <pattern
-                            id="0787a7c5-978c-4f66-83c7-11c213f99cb7"
-                            width={200}
-                            height={200}
-                            x="50%"
-                            y={-1}
-                            patternUnits="userSpaceOnUse"
-                        >
-                            <path d="M.5 200V.5H200" fill="none" />
-                        </pattern>
-                    </defs>
-                    <rect width="100%" height="100%" strokeWidth={0} fill="url(#0787a7c5-978c-4f66-83c7-11c213f99cb7)" />
-                </svg>
-                <div className="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56">
-                    <div className="hidden sm:mb-8 sm:flex sm:justify-center">
-                        <div className="relative rounded-full px-3 py-1 text-sm leading-6 text-gray-600 ring-1 ring-gray-900/10 hover:ring-gray-900/20">
-                            {t('an-optimized-tech-stack-for-efficiency')}{' '}
-                            <Link href="https://github.com/ThijmenGThN/next-leaflet" target='_blank' className="font-semibold text-primary">
-                                <span className="absolute inset-0" aria-hidden="true" />
-                                {t('read-more')} <span aria-hidden="true">&rarr;</span>
-                            </Link>
+                <div className="flex flex-col gap-y-4 mr-auto">
+                    <Link href="https://maps.app.goo.gl/aznjkGL5QgDn5W5t6" target='_blank'>
+                        <div className="flex items-center gap-x-2">
+                            <MapPinIcon className="h-7 w-7" />
+                            The Netherlands, Deventer
                         </div>
-                    </div>
-                    <div className="text-center">
-                        <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
-                            next-leaflet
-                        </h1>
-                        <p className="mt-6 text-lg leading-8 text-gray-600">
-                            {t('a-comprehensive-and-efficient-appstack-that-combines-the-power-of-next-js-and-the-flexibility-of-pocketbase-for-streamlined-web-application-development')}
-                        </p>
-                        <div className="mt-10 flex items-center justify-center gap-x-6">
-                            <Link
-                                href="/login"
-                                className="rounded-md bg-primary px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-primary-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
-                            >
-                                {t('log-in')}
-                            </Link>
-                            <Link href='/pb/_' target='_blank' className="text-sm font-semibold leading-6 text-gray-900">
-                                {t('open-pocketbase')} <span aria-hidden="true">→</span>
-                            </Link>
+                    </Link>
+                    <Link href="mailto:mail@thijmenheuvelink.nl">
+                        <div className="flex items-center gap-x-2">
+                            <EnvelopeIcon className="h-7 w-7" />
+                            mail@thijmenheuvelink.nl
                         </div>
-                    </div>
+                    </Link>
+                </div>
+
+                <div className='flex gap-x-6'>
+                    <Link href="https://github.com/ThijmenGThN" target='_blank'>
+                        <svg className='h-7 w-7' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" /></svg>
+                    </Link>
+                    <Link href="https://www.linkedin.com/in/thijmenheuvelink/" target='_blank'>
+                        <svg className='h-7 w-7' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" /></svg>
+                    </Link>
+                </div>
+            </div>
+
+            <div className='flex items-center my-24 aspect-square'>
+                <div className='relative w-full h-full'>
+                    <div className='absolute -bottom-3 -right-3 bg-gray-300 w-full h-full' />
+
+                    <Image className='absolute -top-3 -left-3 w-full h-full object-cover border-8 border-white'
+                        src={assetAvatar}
+                        alt="Avatar"
+                    />
                 </div>
             </div>
         </div>
