@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  setup:
+  deploy:
     runs-on: self-hosted
     steps:
       - uses: appleboy/ssh-action@master
@@ -31,24 +31,6 @@ jobs:
 
             nvm install 22
             nvm use 22
-  deploy:
-    needs: setup
-    runs-on: self-hosted
-    steps:
-      - uses: appleboy/ssh-action@master
-        with:
-          key:      ${{ secrets.SSH_KEY }} 
-          host:     ${{ secrets.SSH_HOST }}
-          username: ${{ secrets.SSH_USER }}
-          port:     ${{ secrets.SSH_PORT }}
-          script: |
-            cd ~/env/${{github.event.repository.name}}
 
-            export NVM_DIR="$HOME/.nvm"
-            [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  
-            [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  
-
-            nvm use 22
-
-            npm ci
+            npm install
             npm run deploy
