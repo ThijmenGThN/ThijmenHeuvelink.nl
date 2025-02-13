@@ -33,4 +33,4 @@ jobs:
             nvm use 22
 
             npm install
-            npm run deploy
+            npm run dev
