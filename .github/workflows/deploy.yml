@@ -33,4 +33,6 @@ jobs:
             nvm use 22
 
             npm install
-            npm run dev
+            
+            screen -S site -X quit
+            screen -dmS site npm run dev
