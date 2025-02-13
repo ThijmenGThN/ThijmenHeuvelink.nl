@@ -1,17 +1,11 @@
-
-# Environment
-.env*
-!.env.sample
-
-
-# Next.JS
-.next
 node_modules
 
+/.cache
+/build
+.env
 
-# Package Manager
-npm-debug.log*
+.wrangler
+.dev.vars
 
-
-# Compilers
-next-env.d.ts
+public/draco
+storybook-static

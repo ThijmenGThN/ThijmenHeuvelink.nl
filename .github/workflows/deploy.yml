@@ -1,10 +1,7 @@
 name: Deploy
 
 on:
-  push:
-    # Branch on which to automatically run the deploy-action.
-    # ┗━ Options: branch.name ━━ example: "main"
-    branches: disabled
+  workflow_dispatch:
 
 jobs:
   setup:
@@ -26,8 +23,10 @@ jobs:
             sudo git pull
 
             echo '${{ secrets.APP_ENV }}' > .env
-            
-            sudo docker-compose pull
+
+            curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
+            nvm install 22
+            nvm use 22
   deploy:
     needs: setup
     runs-on: self-hosted
@@ -41,5 +40,7 @@ jobs:
           script: |
             cd ~/env/${{github.event.repository.name}}
 
-            sudo docker-compose down
-            sudo docker-compose up -d --remove-orphans
+            nvm use 22
+
+            npm ci
+            npm run deploy

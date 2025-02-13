@@ -1,186 +1,56 @@
+<p align="center">
+  <img src="/public/favicon.svg" width="50" alt="Logo" />
+</p>
+<h1 align="center">Personal portfolio</h1>
 
-# next-leaflet
+[![Site preview](/public/site-preview.png)](https://hamishw.com)
 
-An optimized tech stack for efficiency, an all-in-one solution to quickly build modern web apps.
+My design portfolio to showcase a few projects. Built with [Remix](https://remix.run/), [Three.js](https://threejs.org/), and [Framer Motion](https://www.framer.com/motion/). View the [live site](https://hamishw.com) or check out a live version of the [components storybook](https://storybook.hamishw.com).
 
-![preview](https://i.imgur.com/oulW1VO.png)
+## Install & run
 
+Make sure you have nodejs `19.9.0` or higher and npm `9.6.3` or higher installed. Install dependencies with:
 
+```bash
+npm install
+```
 
-### Powered by
+Once it's done start up a local server with:
 
-- [NextJS](https://nextjs.org)
-- [Pocketbase](https://pocketbase.io)
+```bash
+npm run dev
+```
 
+To view the components storybook:
 
+```bash
+npm run dev:storybook
+```
 
-### Features
+## Deployment
 
-- [Realtime Database](https://pocketbase.io)
-- [Authentication](https://pocketbase.io/docs/authentication/)
-- [File Storage](https://pocketbase.io/docs/files-handling/)
-- [Localization](https://next-intl-docs.vercel.app)
+I've set up the site using Cloudflare for hosting. Deploy the site to Cloudflare Pages:
 
+```bash
+npm run deploy
+```
 
+## Permissions
 
-### Includes
+I'm cool with anyone using the code or parts of the code for their own site, it is open source so people can learn from it and adapt it. However, I would encourage you to modify the theme and components it to make it your own. If you are using the site's design largely unmodified, I'd appreciate being credited as the designer of the website.
 
-- [Tailwind](https://tailwindcss.com)
-- [Gravatar](https://gravatar.com)
-- [Heroicons](https://heroicons.com)
-- [HeadlessUI](https://headlessui.com)
+I do not give permission to present any of my projects as your own (this is being actively used as my portfolio site and these are my real projects I've worked on).
 
+## FAQs
 
-
-## Getting Started
-
-<details><summary>Development</summary>
-
-### Dependencies
-
-- Install docker and docker compose.
-    
-    - Windows: [Docker Desktop](https://www.docker.com/get-started/)
-    - Linux: [Guide from Digital Ocean](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-compose-on-ubuntu-22-04)
-    - Ubuntu >20.04: [Guide from Thijmen Heuvelink](https://wiki.thijmenheuvelink.nl/linux/install-docker)
-
-### Development
-
-> Ensure that you've [cloned](https://git-scm.com/docs/git-clone) the repository and are on the correct path. 
-
-#### Start
-
-``` docker compose up ```
-
-The stack is now accessible on your preferred browser at http://localhost:3000, the pocketbase interface can be found at http://localhost:3000/pb/_/
-
-#### Stop
-
-To stop the stack from running simply execute the ` CTRL + C ` shortcut.
-
+<details>
+  <summary>How do I change the color on the <code>DisplacementSphere</code> (blobby rotating thing in the background).</summary>
+  
+  You'll need to edit the fragment shader. [Check out this issue for more details](https://github.com/HamishMW/portfolio/issues/19#issuecomment-870996615).
 </details>
 
-
-
-<details><summary>Production</summary>
-
-### Preparation
-
-1. Create a ` .env ` file:
-   - Locate the ` .env.sample ` file in your project directory.
-   - Duplicate or copy the contents of this file.
-   - Rename the duplicate or copied file to ` .env `. 
-
-2. Configure the environment variable:
-   - Open the ` .env ` file in a text editor.
-   - Locate the line that defines the ` PRODUCTION ` variable.
-   - Set the value of ` PRODUCTION ` to ` "true" ` (include the quotes).
-
-### Production
-
-#### Start
-
-> Unlike in the development steps we now add the  ` -d ` flag which makes the service run in the background.
-
-``` docker compose up -d ```
-
-The stack is now accessible on your preferred browser at http://localhost:3000 or on a differently defined port as stated in the `.env` file, the pocketbase interface can be found at http://localhost:3000/pb/_/
-
-
-
-#### Stop
-
-``` docker compose down ```
-
-</details>
-
-
-
-## Fundamentals
-
-<details><summary>Install Node Packages</summary>
-
-#### Install
-
-``` docker compose exec next npm i -D <package> ```
-
-#### Remove
-
-``` docker compose exec next npm r <package> ```
-
-</details>
-
-> ` NPM ` ` MODULES `
-
-
-<details><summary>Next Navigation API</summary>
-
-Instead of using `next/navigation` you should opt for the helper at ` @helpers/navigation `, this is a replacement required by ` next-intl ` it offers the same functionality.
-
-</details>
-
-> ` Link ` ` useRouter ` ` Redirect ` ` usePathname `
-
-
-<details><summary>Accessing Pocketbase</summary>
-
-Pocketbase has a client executable, below is an example that outputs all available commands. You can learn more on how to use it [here](https://pocketbase.io/docs).
-
-``` docker compose exec pocketbase pocketbase --help ```
-
-</details>
-
-> ` CLI `
-
-
-<details><summary>Schema Snapshots</summary>
-
-Executing the following will generate a schema snapshot in ` src/backend/migrations `, note that this process does not save any collection data.
-
-``` docker compose exec pocketbase pocketbase migrate collections ```
-
-</details>
-
-> ` Pocketbase ` ` Migrations `
-
-
-
-## Extras
-
-<details><summary>Continuous Integration</summary>
-
-### Preparation
-
-> The workflow has been set up to connect to any VPS via SSH as defined in the Repository Secrets.
-
-1. Install docker and docker compose on your VPS.
-    
-    - Windows: [Docker Desktop](https://www.docker.com/get-started/)
-    - Linux: [Guide from Digital Ocean](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-compose-on-ubuntu-22-04)
-    - Ubuntu >20.04: [Guide from Thijmen Heuvelink](https://wiki.thijmenheuvelink.nl/linux/install-docker)
-
-2. Setup a Runner on GitHub
-
-    1. Create a new Runner
-    
-        - Navigate to ` Settings > Actions > Runners `
-
-            > To set up a new self-hosted runner, follow the instructions provided by GitHub to configure the runner to listen for jobs. It is advisable to install it as a service.
-
-    2. Define environment variables
-    
-        - Navigate and create new secrets in `Settings > Secrets and variables > Actions`
-
-            Name|Expects|Description
-            -|-|-
-            SSH_KEY|Private Key|Generated private ssh-key which will beused    to access the VPS.
-            SSH_HOST|IP Address|The address of your VPS that runs theGitHub    Actions Runner.
-            SSH_USER|Username|System user which should be utilized for deployments.
-            SSH_PORT|Port Number|The port that will be used to connectwith     the VPS, default is 22.
-            APP_ENV|Environment|Contents of the ` .env ` file withadjusted     values for deployment.
-
-### Activation
-
-Define the branch in `.github/deploy.yml` and modify it from being ` disabled ` to an existing branch. Any modifications made to that particular branch will automatically trigger the Action, deploying your stack to your VPS.
-
+<details>
+  <summary>How do I get the contact form to work?</summary>
+  
+  To get the contact form working create an AWS account and set up SES (Simple Email service). Then plug in your details into `.dev.vars.example` and rename it to `.dev.vars`. You'll also need to add these as enviroment variables in the Cloudflare dashboard for it to work in production. Or if you don't mind sending through gmail use [nodemailer](https://nodemailer.com/) instead.
 </details>
